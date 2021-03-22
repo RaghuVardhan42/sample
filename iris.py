@@ -14,9 +14,8 @@ butt=st.button("submit")
 if (butt==True):
     df=pd.read_csv(uploaded_file)
     st.write(df.head())
+    
+    fig = px.scatter(x=df["sepal.length"],y=df["petal.length"],)
+    fig.update_layout(xaxis_title="sepal length",yaxis_title="petal length",)
 
-    with st.echo(code_location='below'):
-        fig = px.scatter(x=df["sepal.length"],y=df["petal.length"],)
-        fig.update_layout(xaxis_title="sepal length",yaxis_title="petal length",)
-
-        st.write(fig)
+    st.write(fig)
